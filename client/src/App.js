@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  state = {
+
+  }
+
+  componentDidMount = () => {
+    // this is an example get request that calls our server
+    fetch('/api')
+      .then(results => results.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }
+
   render() {
     return (
       <div className="App">
