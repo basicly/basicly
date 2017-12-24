@@ -1,9 +1,15 @@
 import React from 'react';
+import './ToDoContainer.css';
 
-const toDoContainer = () => {
+// import the ToDoInProgressList component
+import ToDoInProgressList from '../ToDoInProgressList/ToDoInProgressList';
+
+const toDoContainer = (props) => {
   return (
-    <div>
-      ToDoContainer goes here
+    <div className="ToDoContainer">
+      <ToDoInProgressList
+        toDoInProgressList={props.toDoInProgressList}
+      />
     </div>
   );
 };
