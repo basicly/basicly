@@ -4,6 +4,7 @@ const app = express();
 const Promise = require('bluebird');
 const completed = require('./routes/Completed/index.js');
 const inProgress = require('./routes/InProgress/index.js');
+const deleteTodo = require('./routes/Delete/index.js');
 
 //Body Parser Middleware
 app.use(bodyParser.json());
