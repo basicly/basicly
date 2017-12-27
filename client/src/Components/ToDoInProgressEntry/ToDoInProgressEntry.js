@@ -3,7 +3,7 @@ import React from 'react';
 const toDoInProgressEntry = (props) => {
   return (
     <div>
-      {props.toDo.name}
+      {props.toDoInProgress.name}
     </div>
   );
 };
