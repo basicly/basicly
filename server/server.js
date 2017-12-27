@@ -12,6 +12,11 @@ app.use(bodyParser.urlencoded({extended: false}))
 //Set Static Path
 app.use(express.static(__dirname + '/../client/build'));
 
+//Temporarily adding this back in - Need it to render for current test
+app.get('/api', (req, res) => {
+   res.send(['rory', 'joe', 'boi']);
+});
+
 //Either getting or posting Completed and In Progress To-Do's
 // app.get('/completed', completed.postCompleted);
 // app.get('/completed', completed.getCompleted);
