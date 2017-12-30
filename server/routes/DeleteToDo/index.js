@@ -4,4 +4,4 @@ deleteController = {
   }
 }
 
-module.exports(deleteController);
+module.exports = deleteController;

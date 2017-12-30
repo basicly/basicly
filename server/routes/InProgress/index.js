@@ -7,4 +7,4 @@ inProgressController = {
   }
 }
 
-module.exports(inProgressController);
+module.exports = inProgressController;
