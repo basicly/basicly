@@ -19,15 +19,25 @@ app.get('/api', (req, res) => {
    res.send(['rory', 'joe', 'boi']);
 });
 
-models.sequelize.sync({force: false})
-  .then(() => {
+
     models.User.create({
-      username: 'roryTheUser'
+      username: 'samTheUser',
+      password: 'haha'
     }).then(function() {
       console.log('we did it');
       // res.redirect('/');
     });
-  });
+
+
+
+    models.ToDo.create({
+        UserId: 1,
+        isCompleted: false,
+        isDeleted: false
+      }).then(function() {
+        console.log('Todo Created')
+    });
+
 
 //Either getting or posting Completed and In Progress To-Do's
 // app.get('/completed', completed.postCompleted);
