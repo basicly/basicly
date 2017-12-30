@@ -5,21 +5,32 @@ import ToDoContainer from './Components/ToDoContainer/ToDoContainer';
 class App extends Component {
   state = {
     // this is all static test data
-    toDoList: [
+    toDosInProgress: [
       {
         id: 1,
-        name: 'get in shape',
-        isCompleted: false
+        name: 'get in shape'
       },
       {
         id: 2,
-        name: 'shower',
-        isCompleted: true
+        name: 'shower'
       },
       {
         id: 3,
-        name: 'finish basicly',
-        isCompleted: false
+        name: 'finish basicly'
+      }
+    ],
+    toDosCompleted: [
+      {
+        id: 4,
+        name: 'get in shape'
+      },
+      {
+        id: 5,
+        name: 'shower'
+      },
+      {
+        id: 6,
+        name: 'finish basicly'
       }
     ]
   }
@@ -37,10 +48,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Welcome to Basicly</h1>
+        <div className="Header">
+          <h1>basicly</h1>
+        </div>
         <ToDoContainer
-          toDoInProgressList={this.state.toDoList.filter(toDo => !toDo.isCompleted)}
-          toDoCompletedList={this.state.toDoList.filter(toDo => toDo.isCompleted)}
+          toDosInProgress={this.state.toDosInProgress}
+          toDosCompleted={this.state.toDosCompleted}
         />
       </div>
     );

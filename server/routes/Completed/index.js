@@ -7,4 +7,4 @@ completedController = {
   }
 }
 
-module.exports(completedController);
+module.exports = completedController;

@@ -7,10 +7,11 @@ import ToDoInProgressEntry from '../ToDoInProgressEntry/ToDoInProgressEntry';
 const toDoInProgressList = (props) => {
   return (
     <div className="ToDoInProgressList">
-      {props.toDoInProgressList.map((toDo) => {
+      {props.toDosInProgress.map((toDoInProgress) => {
         return (
           <ToDoInProgressEntry
-            toDo={toDo}
+            key={toDoInProgress.id}
+            toDoInProgress={toDoInProgress}
           />
         );
       })}

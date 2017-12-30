@@ -2,9 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const Promise = require('bluebird');
-const completed = require('./routes/Completed/index.js');
-const inProgress = require('./routes/InProgress/index.js');
-const deleteTodo = require('./routes/Delete/index.js');
+// const completed = require('./routes/Completed/index.js');
+// const inProgress = require('./routes/InProgress/index.js');
+// const deleteTodo = require('./routes/Delete/index.js');
+const models = require('./models');
 
 //Body Parser Middleware
 app.use(bodyParser.json());
@@ -17,6 +18,16 @@ app.use(express.static(__dirname + '/../client/build'));
 app.get('/api', (req, res) => {
    res.send(['rory', 'joe', 'boi']);
 });
+
+models.sequelize.sync({force: false})
+  .then(() => {
+    models.User.create({
+      username: 'roryTheUser'
+    }).then(function() {
+      console.log('we did it');
+      // res.redirect('/');
+    });
+  });
 
 //Either getting or posting Completed and In Progress To-Do's
 // app.get('/completed', completed.postCompleted);
