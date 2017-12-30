@@ -48,7 +48,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Welcome to Basicly</h1>
+        <div className="Header">
+          <h1>basicly</h1>
+        </div>
         <ToDoContainer
           toDosInProgress={this.state.toDosInProgress}
           toDosCompleted={this.state.toDosCompleted}
