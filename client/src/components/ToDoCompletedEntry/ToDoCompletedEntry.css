@@ -1,0 +1,16 @@
+.ToDoCompleted {
+  padding-bottom: 16px;
+}
+
+.ToDoCompleted label {
+  text-decoration: line-through;
+}
+
+.ToDoCompleted input {
+  margin-right: 10px;
+}
+
+.ToDoCompleted .DateContainer {
+  float: right;
+  text-decoration: line-through;
+}
