@@ -1,61 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
-import ToDoContainer from './Components/ToDoContainer/ToDoContainer';
+
+// import the Layer component
+import './components/Layout/Layout';
+import Layout from './components/Layout/Layout';
 
 class App extends Component {
-  state = {
-    // this is all static test data
-    toDosInProgress: [
-      {
-        id: 1,
-        name: 'get in shape'
-      },
-      {
-        id: 2,
-        name: 'shower'
-      },
-      {
-        id: 3,
-        name: 'finish basicly'
-      }
-    ],
-    toDosCompleted: [
-      {
-        id: 4,
-        name: 'get in shape'
-      },
-      {
-        id: 5,
-        name: 'shower'
-      },
-      {
-        id: 6,
-        name: 'finish basicly'
-      }
-    ]
-  }
-
-  componentDidMount = () => {
-    // this is an example get request that calls our server
-    fetch('/api')
-      .then((results) => results.json())
-      .then((data) => {
-        console.log(data);
-      });
-  }
-
   // render the component
   render() {
     return (
-      <div className="App">
-        <div className="Header">
-          <h1>basicly</h1>
-        </div>
-        <ToDoContainer
-          toDosInProgress={this.state.toDosInProgress}
-          toDosCompleted={this.state.toDosCompleted}
-        />
-      </div>
+      <Layout
+      />
     );
   }
 }

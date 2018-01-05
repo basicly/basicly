@@ -3,7 +3,12 @@ import React from 'react';
 const toDoInProgressEntry = (props) => {
   return (
     <div>
-      {props.toDoInProgress.name}
+      <label>
+        <input
+          type="checkbox"
+        />
+        {props.toDoInProgress.name}
+      </label>
     </div>
   );
 };
