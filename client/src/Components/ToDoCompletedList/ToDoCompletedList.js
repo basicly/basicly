@@ -7,14 +7,16 @@ import ToDoCompletedEntry from '../ToDoCompletedEntry/ToDoCompletedEntry';
 const toDoCompletedList = (props) => {
   return (
     <div className="ToDoCompletedList">
-      {props.toDosCompleted.map((toDoCompleted) => {
-        return (
-          <ToDoCompletedEntry
-            key={toDoCompleted.id}
-            toDoCompleted={toDoCompleted}
-          />
-        );
-      })}
+      <form>
+        {props.toDosCompleted.map((toDoCompleted) => {
+          return (
+            <ToDoCompletedEntry
+              key={toDoCompleted.id}
+              toDoCompleted={toDoCompleted}
+            />
+          );
+        })}
+      </form>
     </div>
   );
 };

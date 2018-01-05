@@ -3,7 +3,12 @@ import React from 'react';
 const toDoCompletedEntry = (props) => {
   return (
     <div>
-      {props.toDoCompleted.name}
+      <label>
+        <input
+          type="checkbox"
+        />
+        {props.toDoCompleted.name}
+      </label>
     </div>
   );
 };
