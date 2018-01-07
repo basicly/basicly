@@ -14,7 +14,7 @@ var db        = {};
 //   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 // }
 
-const sequelize = new Sequelize('basicly', 'slee', 'password', {
+const sequelize = new Sequelize('basicly', 'rorywell', 'password', {
   host: 'localhost',
   dialect: 'postgres',
   pool: {
@@ -41,7 +41,7 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-sequelize.sync()
+sequelize.sync();
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

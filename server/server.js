@@ -20,23 +20,29 @@ app.get('/api', (req, res) => {
 });
 
 
-    models.User.create({
-      username: 'samTheUser',
-      password: 'haha'
-    }).then(function() {
-      console.log('we did it');
-      // res.redirect('/');
-    });
+    // models.User.create({
+    //   username: 'samTheUser',
+    //   password: 'haha'
+    // }).then(function() {
+    //   console.log('we did it');
+    //   // res.redirect('/');
+    // });
 
 
 
-    models.ToDo.create({
-        UserId: 1,
-        isCompleted: false,
-        isDeleted: false
-      }).then(function() {
-        console.log('Todo Created')
-    });
+    // models.ToDo.create({
+    //     UserId: 1,
+    //     isCompleted: false,
+    //     isDeleted: false
+    //   }).then(function() {
+    //     console.log('Todo Created')
+    // });
+
+models.User.findAll()
+  .then((data) => {
+    let date = new Date(data[0].createdAt);
+    console.log('hello sir', (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear());
+  });
 
 
 //Either getting or posting Completed and In Progress To-Do's

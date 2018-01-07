@@ -7,14 +7,16 @@ import ToDoInProgressEntry from '../ToDoInProgressEntry/ToDoInProgressEntry';
 const toDoInProgressList = (props) => {
   return (
     <div className="ToDoInProgressList">
-      {props.toDosInProgress.map((toDoInProgress) => {
-        return (
-          <ToDoInProgressEntry
-            key={toDoInProgress.id}
-            toDoInProgress={toDoInProgress}
-          />
-        );
-      })}
+      <form>
+        {props.toDosInProgress.map((toDoInProgress) => {
+          return (
+            <ToDoInProgressEntry
+              key={toDoInProgress.id}
+              toDoInProgress={toDoInProgress}
+            />
+          );
+        })}
+      </form>
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.ToDoInProgress {
+  padding-bottom: 16px;
+}
+
+.ToDoInProgress input {
+  margin-right: 10px;
+}
+
+.ToDoInProgress .DateContainer {
+  float: right;
+}
