@@ -1,5 +1,5 @@
 .createToDo {
-  padding: 30px 0px;
+  padding: 40px 0px;
 }
 
 .createToDo .button {
@@ -10,4 +10,24 @@
   border: 2px solid gray;
   border-color: rgb(52, 180, 223);
   border-radius: 4px;
+}
+
+.createToDo .due {
+  float: right;
+  font-size: .85em;
+  color: gray;
+  padding-top: 10px;
+  padding-right: 6px;
+}
+
+.createToDo .userIconContainer {
+  float: right;
+  padding-left: 60px;
+  padding-right: 3px;
+  padding-top: 8px;
+}
+
+.createToDo img.userIcon {
+  width: 22px;
+  height: 22px;
 }
