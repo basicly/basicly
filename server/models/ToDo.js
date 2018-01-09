@@ -1,15 +1,19 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const ToDo = sequelize.define('ToDo', {
-    isCompleted: {
+    IsCompleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
     },
-    isDeleted: {
+    IsDeleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
+    },
+    Description: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
@@ -24,4 +28,3 @@ module.exports = (sequelize, DataTypes) => {
 
   return ToDo;
 };
-//sync here to check if table exists or not.

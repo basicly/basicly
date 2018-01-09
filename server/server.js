@@ -2,9 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const Promise = require('bluebird');
-// const completed = require('./routes/Completed/index.js');
-// const inProgress = require('./routes/InProgress/index.js');
-// const deleteTodo = require('./routes/Delete/index.js');
+const completed = require('./routes/Completed');
+const inProgress = require('./routes/InProgress');
+const deleteTodo = require('./routes/DeleteToDo');
 const models = require('./models');
 
 //Body Parser Middleware
@@ -19,16 +19,18 @@ app.get('/api', (req, res) => {
    res.send(['rory', 'joe', 'boi']);
 });
 
+//Either getting or posting Completed and In Progress To-Do's
+app.get('/completed', completed.getCompleted);
+app.post('/inprogress', inProgress.postInProgress);
+app.get('/inprogress', inProgress.getInProgress);
 
-    // models.User.create({
-    //   username: 'samTheUser',
-    //   password: 'haha'
-    // }).then(function() {
-    //   console.log('we did it');
-    //   // res.redirect('/');
-    // });
-
-
+    models.User.create({
+      Username: 'samTheUser',
+      Password: 'haha'
+    }).then(function() {
+      console.log('we did it');
+      // res.redirect('/');
+    });
 
     // models.ToDo.create({
     //     UserId: 1,
@@ -38,18 +40,13 @@ app.get('/api', (req, res) => {
     //     console.log('Todo Created')
     // });
 
-models.User.findAll()
-  .then((data) => {
-    let date = new Date(data[0].createdAt);
-    console.log('hello sir', (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear());
-  });
+// models.User.findAll()
+//   .then((data) => {
+//     let date = new Date(data[0].createdAt);
+//     console.log('hello sir', (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear());
+//   });
 
 
-//Either getting or posting Completed and In Progress To-Do's
-// app.get('/completed', completed.postCompleted);
-// app.get('/completed', completed.getCompleted);
-// app.post('/inprogress', inProgress.postInProgress);
-// app.get('/inprogress', inProgress.getInProgress);
 
 //Listening to port
 app.listen(5000);

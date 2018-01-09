@@ -1,9 +1,14 @@
+const models  = require('../../models');
+const express = require('express');
+const router  = express.Router();
+
 completedController = {
-  postCompleted(req, res) {
-
-  },
   getCompleted(req, res) {
-
+      models.ToDo.findAll({
+        isCompleted: true
+      })
+      .then(allToDo => res.send(allToDo))
+      .catch(error => res.send(error))
   }
 }
 
