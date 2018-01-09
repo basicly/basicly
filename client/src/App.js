@@ -10,9 +10,11 @@ class App extends Component {
   componentDidMount() {
     $.ajax({
       type: "POST",
-      dataType: "json",
       url: "http://localhost:3000/inprogress",
-      data: { description: 'hello' },
+      data: {
+          Description: 'hello',
+          UserId: 1
+        },
       success: function (data) {
         console.log('SUCCESSFUL', data)
       },
