@@ -1,0 +1,20 @@
+.toDoEntry {
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(122, 122, 122, .4);
+}
+
+.toDoEntry .inProgress {
+  margin-right: 20px;
+  color: rgba(128, 128, 128, .5);
+}
+
+.toDoEntry .completed {
+  margin-right: 20px;
+  color: green;
+}
+
+.toDoEntry .dateContainer {
+  float: right;
+  font-size: .85em;
+}

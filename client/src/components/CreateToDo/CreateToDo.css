@@ -1,0 +1,13 @@
+.createToDo {
+  padding: 30px 0px;
+}
+
+.createToDo .button {
+  color: rgb(52, 180, 223);
+  font-weight: bold;
+  font-size: .9em;
+  padding: 5px;
+  border: 2px solid gray;
+  border-color: rgb(52, 180, 223);
+  border-radius: 4px;
+}
