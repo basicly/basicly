@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './ToDoContainer.css';
 
-// import the ToDoInProgressList component
-import ToDoInProgressList from '../ToDoInProgressList/ToDoInProgressList';
+// import the ToDoList component
+import ToDoList from '../ToDoList/ToDoList';
 
-// import the ToDoCompletedList component
-import ToDoCompletedList from '../ToDoCompletedList/ToDoCompletedList';
+// import the CreateToDo component
+import CreateToDo from '../CreateToDo/CreateToDo';
 
 class ToDoContainer extends Component {
   state = {
@@ -13,41 +13,46 @@ class ToDoContainer extends Component {
     toDosInProgress: [
       {
         id: 1,
-        name: 'get in shape'
+        name: 'Get a job as a software engineer',
+        isCompleted: false
       },
       {
         id: 2,
-        name: 'shower'
+        name: 'Get in shape for upcoming trip to the Bahamas',
+        isCompleted: false
       },
       {
         id: 3,
-        name: 'finish basicly'
+        name: 'Last through the cedar allergy season',
+        isCompleted: false
       }
     ],
     toDosCompleted: [
       {
         id: 4,
-        name: 'blah blah blah'
+        name: 'Live past the year 2017',
+        isCompleted: true
       },
       {
         id: 5,
-        name: 'done it'
-      },
-      {
-        id: 6,
-        name: 'finished already'
+        name: 'Finish the Hack Reactor technical assessment',
+        isCompleted: true
       }
     ]
   }
 
   render() {
     return (
-      <div className="ToDoContainer">
-        <ToDoInProgressList
-          toDosInProgress={this.state.toDosInProgress}
+      <div className="toDoContainer">
+        <CreateToDo
         />
-        <ToDoCompletedList
-          toDosCompleted={this.state.toDosCompleted}
+        <ToDoList
+          category="In Progress"
+          toDos={this.state.toDosInProgress}
+        />
+        <ToDoList
+          category="Completed"
+          toDos={this.state.toDosCompleted}
         />
       </div>
     );

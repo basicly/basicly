@@ -5,8 +5,8 @@ import './Layout.css';
 import ToDoContainer from '../ToDoContainer/ToDoContainer';
 
 const layout = (props) => (
-  <div className="Layout">
-    <p className="Header">basicly</p>
+  <div className="layout">
+    <p className="header">basicly</p>
     <ToDoContainer />
   </div>
 );
