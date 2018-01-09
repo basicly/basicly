@@ -14,7 +14,7 @@ var db        = {};
 //   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 // }
 
-const sequelize = new Sequelize('basicly', 'rorywell', 'password', {
+const sequelize = new Sequelize('basicly', 'slee', 'password', {
   host: 'localhost',
   dialect: 'postgres',
   pool: {

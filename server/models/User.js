@@ -1,12 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    username: {
+    Username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
     },
-    password: {
+    Password: {
       type: DataTypes.STRING,
       allowNull: false
     }
@@ -18,4 +18,3 @@ module.exports = (sequelize, DataTypes) => {
 
   return User;
 };
-//sync here to check if table exists or not.
