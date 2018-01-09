@@ -7,22 +7,24 @@ import $ from 'jquery';
 
 class App extends Component {
   // render the component
-  componentDidMount() {
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:3000/inprogress",
-      data: {
-          Description: 'hello',
-          UserId: 1
-        },
-      success: function (data) {
-        console.log('SUCCESSFUL', data)
-      },
-      error: function (error) {
-        console.log('ERROR ON POST', error);
-      }
-    })
-  }
+  // Testing the post
+  // componentDidMount() {
+  //   $.ajax({
+  //     type: "POST",
+  //     url: "http://localhost:3000/inprogress",
+  //     data: {
+  //         Description: 'hello',
+  //         UserId: 1
+  //       },
+  //     success: function (data) {
+  //       console.log('SUCCESSFUL', data)
+  //     },
+  //     error: function (error) {
+  //       console.log('ERROR ON POST', error);
+  //     }
+  //   })
+  // }
+
   render() {
     return (
       <Layout
