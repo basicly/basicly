@@ -5,7 +5,10 @@ import './ToDoContainer.css';
 import ToDoList from '../ToDoList/ToDoList';
 
 // import the CreateToDo component
-import CreateToDo from '../CreateToDo/CreateToDo';
+import ToDoHeader from '../ToDoHeader/ToDoHeader';
+
+// import the Modal component
+import Modal from '../Modal/Modal';
 
 class ToDoContainer extends Component {
   state = {
@@ -43,18 +46,23 @@ class ToDoContainer extends Component {
 
   render() {
     return (
-      <div className="toDoContainer">
-        <CreateToDo
-        />
-        <ToDoList
-          category="In Progress"
-          toDos={this.state.toDosInProgress}
-        />
-        <ToDoList
-          category="Completed"
-          toDos={this.state.toDosCompleted}
-        />
-      </div>
+      <React.Fragment>
+        <Modal>
+          Add a to do to your list!
+        </Modal>
+        <div className="toDoContainer">
+          <ToDoHeader
+          />
+          <ToDoList
+            category="In Progress"
+            toDos={this.state.toDosInProgress}
+          />
+          <ToDoList
+            category="Completed"
+            toDos={this.state.toDosCompleted}
+          />
+        </div>
+      </React.Fragment>
     );
   }
 }
