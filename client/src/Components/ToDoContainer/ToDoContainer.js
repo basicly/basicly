@@ -19,38 +19,44 @@ class ToDoContainer extends Component {
     toDosInProgress: [
       {
         id: 1,
-        name: 'Get a job as a software engineer',
+        description: 'Get a job as a software engineer',
         isCompleted: false
       },
       {
         id: 2,
-        name: 'Get in shape for upcoming trip to the Bahamas',
+        description: 'Get in shape for upcoming trip to the Bahamas',
         isCompleted: false
       },
       {
         id: 3,
-        name: 'Last through the cedar allergy season',
+        description: 'Last through the cedar allergy season',
         isCompleted: false
       }
     ],
     toDosCompleted: [
       {
         id: 4,
-        name: 'Live past the year 2017',
+        description: 'Live past the year 2017',
         isCompleted: true
       },
       {
         id: 5,
-        name: 'Finish the Hack Reactor technical assessment',
+        description: 'Finish the Hack Reactor technical assessment',
         isCompleted: true
       }
     ],
     creatingToDo: false
   }
 
-  createToDoClickedHandler() {
+  createToDoClickedHandler = () => {
     this.setState({
       creatingToDo: true
+    });
+  }
+
+  createToDoCanceledHandler = () => {
+    this.setState({
+      creatingToDo: false
     });
   }
 
@@ -60,11 +66,12 @@ class ToDoContainer extends Component {
         <Modal
           show={this.state.creatingToDo}>
           <CreateToDo
+            createToDoCanceled={this.createToDoCanceledHandler}
           />
         </Modal>
         <div className="toDoContainer">
           <ToDoHeader
-            createToDoClicked={this.state.createToDoClickedHandler}
+            createToDoClicked={this.createToDoClickedHandler}
           />
           <ToDoList
             category="In Progress"

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './CreateToDo.css';
 
+// import X icon
+import xIcon from './images/x-icon.png';
+
 // import Momentjs
 import moment from 'moment';
 
@@ -28,7 +31,15 @@ class CreateToDo extends Component {
   render() {
     return (
       <div className="createToDo">
-        <div className="createToDoHeader">New To Do</div>
+        <div className="createToDoHeader">
+          New To Do
+          <img 
+            className="xIcon"
+            src={xIcon} 
+            alt="Close"
+            onClick={this.props.createToDoCanceled}
+          />
+        </div>
         <form>
           <label className="label">
             Name

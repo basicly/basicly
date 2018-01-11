@@ -13,7 +13,7 @@ const toDoEntry = (props) => {
   return (
     <div className="toDoEntry">
       <span className={statusColor}>&#10004;</span>
-      <span>{props.toDo.name}</span>
+      <span>{props.toDo.description}</span>
       <span className="dateContainer">Sep 8</span>
     </div>
   );
