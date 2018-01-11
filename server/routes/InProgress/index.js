@@ -24,26 +24,3 @@ inProgressController = {
 }
 
 module.exports = inProgressController;
-
-
-  // const ToDo = sequelize.define('ToDo', {
-  //   isCompleted: {
-  //     type: DataTypes.BOOLEAN,
-  //     allowNull: false,
-  //     defaultValue: false
-  //   },
-  //   isDeleted: {
-  //     type: DataTypes.BOOLEAN,
-  //     allowNull: false,
-  //     defaultValue: false
-  //   }
-  // });
-
-
-    // models.ToDo.create({
-    //     UserId: 1,
-    //     isCompleted: false,
-    //     isDeleted: false
-    //   }).then(function() {
-    //     console.log('Todo Created')
-    // });
