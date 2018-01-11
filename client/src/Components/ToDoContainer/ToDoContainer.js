@@ -57,9 +57,11 @@ class ToDoContainer extends Component {
     });
   }
 
-  createToDoSubmitHandler = (toDo) => {
-    axios.post('/inprogress', { description: toDo.description, dateDue: toDo.dueDate})
+  createToDoSubmitHandler = (event, description, dueDate) => {
+    event.preventDefault();
+    axios.post('/inprogress', { userId: 1, description: description, dueDate: dueDate})
       .then((result) => {
+        this.createToDoCancelHandler();
         console.log(result);
       })
       .catch((err) => {

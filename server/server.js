@@ -27,8 +27,8 @@ app.get('/inprogress', inProgress.getInProgress);
 app.put('/toggleTodo', toggleToDo.ToggleToDo);
 
     // models.User.create({
-    //   Username: 'samTheUser',
-    //   Password: 'haha'
+    //   username: 'samTheUser',
+    //   password: 'haha'
     // }).then(function() {
     //   console.log('we did it');
     //   // res.redirect('/');

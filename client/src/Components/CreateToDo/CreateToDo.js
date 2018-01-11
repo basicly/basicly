@@ -45,11 +45,11 @@ class CreateToDo extends Component {
             className="xIcon"
             src={xIcon} 
             alt="Close"
-            onClick={() => this.props.createToDoCanceled(this.props.toDo)}
+            onClick={this.props.createToDoCanceled}
           />
         </div>
         <form
-          onSubmit={this.props.createToDoSubmitted}>
+          onSubmit={(event) => this.props.createToDoSubmitted(event, this.state.toDo.description, this.state.startDate)}>
           <label className="label">
             Name
             <br />
