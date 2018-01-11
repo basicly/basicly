@@ -7,13 +7,14 @@ import $ from 'jquery';
 
 class App extends Component {
   // render the component
+  // Testing the post
   componentDidMount() {
     $.ajax({
-      type: "POST",
-      url: "http://localhost:3000/inprogress",
+      type: "PUT",
+      url: "http://localhost:3000/toggleTodo",
       data: {
-          Description: 'hello',
-          UserId: 1
+          id: 4,
+          IsCompleted: true
         },
       success: function (data) {
         console.log('SUCCESSFUL', data)
@@ -23,6 +24,7 @@ class App extends Component {
       }
     })
   }
+
   render() {
     return (
       <Layout

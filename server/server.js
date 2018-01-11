@@ -6,6 +6,7 @@ const completed = require('./routes/Completed');
 const inProgress = require('./routes/InProgress');
 const deleteTodo = require('./routes/DeleteToDo');
 const models = require('./models');
+const toggleToDo = require('./routes/ToggleToDo');
 
 //Body Parser Middleware
 app.use(bodyParser.json());
@@ -23,14 +24,15 @@ app.get('/api', (req, res) => {
 app.get('/completed', completed.getCompleted);
 app.post('/inprogress', inProgress.postInProgress);
 app.get('/inprogress', inProgress.getInProgress);
+app.put('/toggleTodo', toggleToDo.ToggleToDo);
 
-    models.User.create({
-      Username: 'samTheUser',
-      Password: 'haha'
-    }).then(function() {
-      console.log('we did it');
-      // res.redirect('/');
-    });
+    // models.User.create({
+    //   Username: 'samTheUser',
+    //   Password: 'haha'
+    // }).then(function() {
+    //   console.log('we did it');
+    //   // res.redirect('/');
+    // });
 
     // models.ToDo.create({
     //     UserId: 1,
