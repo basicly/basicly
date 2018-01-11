@@ -1,17 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './CreateToDo.css';
 
-// import the user icon
-// import userIcon from './images/user-icon.png';
+// import Momentjs
+import moment from 'moment';
 
-const createToDo = (props) => {
-  return (
-    <div className="createToDo">
-      <button className="button">Add To Do</button>
-      {/* <span className="userIconContainer"><img className="userIcon" src={userIcon} alt="User Icon"/></span> */}
-      <span className="due">Due</span>
-    </div>
-  );
+// import the DatePicker component
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+class CreateToDo extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      startDate: moment()
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
+  }
+
+  render() {
+    return (
+      <div className="createToDo">
+        <div className="createToDoHeader">New To Do</div>
+        <form>
+          <label className="label">
+            Name
+            <br />
+            <input className="textInput" type="text" name="toDo" />
+          </label>
+          <div className="datePickerContainer">
+            Date
+            <DatePicker
+              className="datePicker"
+              selected={this.state.startDate}
+              onChange={this.handleChange}
+            />
+          </div>
+          <input className="button" type="submit" value="Create" />
+        </form>
+      </div>
+    );
+  }
 };
 
-export default createToDo;
+export default CreateToDo;

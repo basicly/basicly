@@ -1,0 +1,33 @@
+.toDoHeader {
+  padding: 40px 0px;
+}
+
+.toDoHeader .button {
+  color: rgb(52, 180, 223);
+  font-weight: bold;
+  font-size: .9em;
+  padding: 5px;
+  border: 2px solid gray;
+  border-color: rgb(52, 180, 223);
+  border-radius: 4px;
+}
+
+.toDoHeader .due {
+  float: right;
+  font-size: .85em;
+  color: gray;
+  padding-top: 10px;
+  padding-right: 6px;
+}
+
+.toDoHeader .userIconContainer {
+  float: right;
+  padding-left: 60px;
+  padding-right: 3px;
+  padding-top: 8px;
+}
+
+.toDoHeader img.userIcon {
+  width: 22px;
+  height: 22px;
+}

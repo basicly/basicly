@@ -5,6 +5,12 @@ import './ToDoContainer.css';
 import ToDoList from '../ToDoList/ToDoList';
 
 // import the CreateToDo component
+import ToDoHeader from '../ToDoHeader/ToDoHeader';
+
+// import the Modal component
+import Modal from '../Modal/Modal';
+
+// import the CreateToDo compponent
 import CreateToDo from '../CreateToDo/CreateToDo';
 
 class ToDoContainer extends Component {
@@ -38,23 +44,38 @@ class ToDoContainer extends Component {
         name: 'Finish the Hack Reactor technical assessment',
         isCompleted: true
       }
-    ]
+    ],
+    creatingToDo: false
+  }
+
+  createToDoClickedHandler() {
+    this.setState({
+      creatingToDo: true
+    });
   }
 
   render() {
     return (
-      <div className="toDoContainer">
-        <CreateToDo
-        />
-        <ToDoList
-          category="In Progress"
-          toDos={this.state.toDosInProgress}
-        />
-        <ToDoList
-          category="Completed"
-          toDos={this.state.toDosCompleted}
-        />
-      </div>
+      <React.Fragment>
+        <Modal
+          show={this.state.creatingToDo}>
+          <CreateToDo
+          />
+        </Modal>
+        <div className="toDoContainer">
+          <ToDoHeader
+            createToDoClicked={this.state.createToDoClickedHandler}
+          />
+          <ToDoList
+            category="In Progress"
+            toDos={this.state.toDosInProgress}
+          />
+          <ToDoList
+            category="Completed"
+            toDos={this.state.toDosCompleted}
+          />
+        </div>
+      </React.Fragment>
     );
   }
 }
