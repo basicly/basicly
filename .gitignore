@@ -3,3 +3,6 @@ node_modules
 
 # Databases #
 data
+
+# dotenv #
+.env
