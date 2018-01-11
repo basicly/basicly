@@ -48,10 +48,14 @@ class ToDoContainer extends Component {
     creatingToDo: false
   }
 
-  createToDoClickedHandler = () => {
+  createToDoStartedHandler = () => {
     this.setState({
       creatingToDo: true
     });
+  }
+
+  createToDoSubmittedHandler = () => {
+    
   }
 
   createToDoCanceledHandler = () => {
@@ -59,6 +63,8 @@ class ToDoContainer extends Component {
       creatingToDo: false
     });
   }
+
+  createToDoSu
 
   render() {
     return (
@@ -71,7 +77,7 @@ class ToDoContainer extends Component {
         </Modal>
         <div className="toDoContainer">
           <ToDoHeader
-            createToDoClicked={this.createToDoClickedHandler}
+            createToDoClicked={this.createToDoStartedHandler}
           />
           <ToDoList
             category="In Progress"

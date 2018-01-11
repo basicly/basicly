@@ -12,19 +12,27 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class CreateToDo extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    startDate: moment(),
+    toDo: {
+      description: ''
+    }
+  };
 
-    this.state = {
-      startDate: moment()
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(date) {
+  dateChangeHandler = (date)  => {
     this.setState({
       startDate: date
+    });
+  }
+
+  toDoDescriptionChangeHandler = (event) => {
+    const newDescription = event.target.value;
+
+    const newToDo = {...this.state.toDo};
+    newToDo.description = newDescription;
+
+    this.setState({
+      toDo: newToDo
     });
   }
 
@@ -44,14 +52,20 @@ class CreateToDo extends Component {
           <label className="label">
             Name
             <br />
-            <input className="textInput" type="text" name="toDo" />
+            <input
+              className="textInput" 
+              type="text" 
+              name="toDo" 
+              value={this.state.toDo.description}
+              onChange={(event) => this.toDoDescriptionChangeHandler(event)}
+            />
           </label>
           <div className="datePickerContainer">
             Date
             <DatePicker
               className="datePicker"
               selected={this.state.startDate}
-              onChange={this.handleChange}
+              onChange={this.dateChangeHandler}
             />
           </div>
           <input className="button" type="submit" value="Create" />
