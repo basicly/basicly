@@ -58,7 +58,7 @@ class ToDoContainer extends Component {
   }
 
   createToDoSubmitHandler = (toDo) => {
-    axios.post('/inprogress', { description: toDo.description, dateDue: toDo.dateDue})
+    axios.post('/inprogress', { description: toDo.description, dateDue: toDo.dueDate})
       .then((result) => {
         console.log(result);
       })

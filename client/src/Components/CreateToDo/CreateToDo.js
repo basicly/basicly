@@ -45,7 +45,7 @@ class CreateToDo extends Component {
             className="xIcon"
             src={xIcon} 
             alt="Close"
-            onClick={this.props.createToDoCanceled}
+            onClick={() => this.props.createToDoCanceled(this.props.toDo)}
           />
         </div>
         <form
