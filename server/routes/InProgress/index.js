@@ -4,12 +4,13 @@ const router  = express.Router();
 
 inProgressController = {
   postInProgress(req, res) {
-    console.log(req.body);
+    console.log('inside post', req.body);
       models.ToDo.create({
-        UserId: req.body.UserId,
-        IsCompleted: false,
-        IsDeleted: false,
-        Description: req.body.Description //we can change the req.body.text
+        UserId: req.body.userId,
+        isCompleted: false,
+        isDeleted: false,
+        description: req.body.description, //we can change the req.body.text
+        dueDate: req.body.dueDate
       })
       .then((data) => res.send(data))
       .catch(error => res.send(error))

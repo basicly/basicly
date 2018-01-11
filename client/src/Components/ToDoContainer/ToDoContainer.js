@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './ToDoContainer.css';
 
+// import Axios
+import axios from 'axios';
+
 // import the ToDoList component
 import ToDoList from '../ToDoList/ToDoList';
 
@@ -19,38 +22,56 @@ class ToDoContainer extends Component {
     toDosInProgress: [
       {
         id: 1,
-        name: 'Get a job as a software engineer',
+        description: 'Get a job as a software engineer',
         isCompleted: false
       },
       {
         id: 2,
-        name: 'Get in shape for upcoming trip to the Bahamas',
+        description: 'Get in shape for upcoming trip to the Bahamas',
         isCompleted: false
       },
       {
         id: 3,
-        name: 'Last through the cedar allergy season',
+        description: 'Last through the cedar allergy season',
         isCompleted: false
       }
     ],
     toDosCompleted: [
       {
         id: 4,
-        name: 'Live past the year 2017',
+        description: 'Live past the year 2017',
         isCompleted: true
       },
       {
         id: 5,
-        name: 'Finish the Hack Reactor technical assessment',
+        description: 'Finish the Hack Reactor technical assessment',
         isCompleted: true
       }
     ],
     creatingToDo: false
   }
 
-  createToDoClickedHandler() {
+  createToDoStartHandler = () => {
     this.setState({
       creatingToDo: true
+    });
+  }
+
+  createToDoSubmitHandler = (event, description, dueDate) => {
+    event.preventDefault();
+    axios.post('/inprogress', { userId: 1, description: description, dueDate: dueDate})
+      .then((result) => {
+        this.createToDoCancelHandler();
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log('Error creating new to do: ', err);
+      });
+  }
+
+  createToDoCancelHandler = () => {
+    this.setState({
+      creatingToDo: false
     });
   }
 
@@ -60,11 +81,13 @@ class ToDoContainer extends Component {
         <Modal
           show={this.state.creatingToDo}>
           <CreateToDo
+            createToDoCanceled={this.createToDoCancelHandler}
+            createToDoSubmitted={this.createToDoSubmitHandler}
           />
         </Modal>
         <div className="toDoContainer">
           <ToDoHeader
-            createToDoClicked={this.state.createToDoClickedHandler}
+            createToDoClicked={this.createToDoStartHandler}
           />
           <ToDoList
             category="In Progress"

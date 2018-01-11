@@ -11,6 +11,12 @@
   border-bottom: 2px solid lightgray;
 }
 
+.createToDo .xIcon {
+  float: right;
+  width: 18px;
+  height: 18px;
+}
+
 .createToDo .label {
   display: block;
 }

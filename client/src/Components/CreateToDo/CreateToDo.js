@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './CreateToDo.css';
 
+// import X icon
+import xIcon from './images/x-icon.png';
+
 // import Momentjs
 import moment from 'moment';
 
@@ -9,38 +12,61 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class CreateToDo extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    startDate: moment(),
+    toDo: {
+      description: ''
+    }
+  };
 
-    this.state = {
-      startDate: moment()
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(date) {
+  dateChangeHandler = (date)  => {
     this.setState({
       startDate: date
+    });
+  }
+
+  toDoDescriptionChangeHandler = (event) => {
+    const newDescription = event.target.value;
+
+    const newToDo = {...this.state.toDo};
+    newToDo.description = newDescription;
+
+    this.setState({
+      toDo: newToDo
     });
   }
 
   render() {
     return (
       <div className="createToDo">
-        <div className="createToDoHeader">New To Do</div>
-        <form>
+        <div className="createToDoHeader">
+          New To Do
+          <img 
+            className="xIcon"
+            src={xIcon} 
+            alt="Close"
+            onClick={this.props.createToDoCanceled}
+          />
+        </div>
+        <form
+          onSubmit={(event) => this.props.createToDoSubmitted(event, this.state.toDo.description, this.state.startDate)}>
           <label className="label">
             Name
             <br />
-            <input className="textInput" type="text" name="toDo" />
+            <input
+              className="textInput" 
+              type="text" 
+              name="toDo" 
+              value={this.state.toDo.description}
+              onChange={(event) => this.toDoDescriptionChangeHandler(event)}
+            />
           </label>
           <div className="datePickerContainer">
             Date
             <DatePicker
               className="datePicker"
               selected={this.state.startDate}
-              onChange={this.handleChange}
+              onChange={this.dateChangeHandler}
             />
           </div>
           <input className="button" type="submit" value="Create" />
