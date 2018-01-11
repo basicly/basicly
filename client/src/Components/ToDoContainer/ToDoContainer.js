@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './ToDoContainer.css';
 
+// import Axios
+import axios from 'axios';
+
 // import the ToDoList component
 import ToDoList from '../ToDoList/ToDoList';
 
@@ -48,23 +51,27 @@ class ToDoContainer extends Component {
     creatingToDo: false
   }
 
-  createToDoStartedHandler = () => {
+  createToDoStartHandler = () => {
     this.setState({
       creatingToDo: true
     });
   }
 
-  createToDoSubmittedHandler = () => {
-    
+  createToDoSubmitHandler = (toDo) => {
+    axios.post('/inprogress', { description: toDo.description, dateDue: toDo.dateDue})
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log('Error creating new to do: ', err);
+      });
   }
 
-  createToDoCanceledHandler = () => {
+  createToDoCancelHandler = () => {
     this.setState({
       creatingToDo: false
     });
   }
-
-  createToDoSu
 
   render() {
     return (
@@ -72,12 +79,13 @@ class ToDoContainer extends Component {
         <Modal
           show={this.state.creatingToDo}>
           <CreateToDo
-            createToDoCanceled={this.createToDoCanceledHandler}
+            createToDoCanceled={this.createToDoCancelHandler}
+            createToDoSubmitted={this.createToDoSubmitHandler}
           />
         </Modal>
         <div className="toDoContainer">
           <ToDoHeader
-            createToDoClicked={this.createToDoStartedHandler}
+            createToDoClicked={this.createToDoStartHandler}
           />
           <ToDoList
             category="In Progress"

@@ -48,7 +48,8 @@ class CreateToDo extends Component {
             onClick={this.props.createToDoCanceled}
           />
         </div>
-        <form>
+        <form
+          onSubmit={this.props.createToDoSubmitted}>
           <label className="label">
             Name
             <br />
