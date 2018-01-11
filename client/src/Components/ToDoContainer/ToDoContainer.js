@@ -10,6 +10,9 @@ import ToDoHeader from '../ToDoHeader/ToDoHeader';
 // import the Modal component
 import Modal from '../Modal/Modal';
 
+// import the CreateToDo compponent
+import CreateToDo from '../CreateToDo/CreateToDo';
+
 class ToDoContainer extends Component {
   state = {
     // this is all static test data
@@ -41,17 +44,27 @@ class ToDoContainer extends Component {
         name: 'Finish the Hack Reactor technical assessment',
         isCompleted: true
       }
-    ]
+    ],
+    creatingToDo: false
+  }
+
+  createToDoClickedHandler() {
+    this.setState({
+      creatingToDo: true
+    });
   }
 
   render() {
     return (
       <React.Fragment>
-        <Modal>
-          Add a to do to your list!
+        <Modal
+          show={this.state.creatingToDo}>
+          <CreateToDo
+          />
         </Modal>
         <div className="toDoContainer">
           <ToDoHeader
+            createToDoClicked={this.state.createToDoClickedHandler}
           />
           <ToDoList
             category="In Progress"

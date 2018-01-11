@@ -7,7 +7,11 @@ import './ToDoHeader.css';
 const toDoHeader = (props) => {
   return (
     <div className="toDoHeader">
-      <button className="button">Add To Do</button>
+      <button 
+        className="button"
+        onClick={props.createToDoClicked}>
+        Add To Do
+      </button>
       {/* <span className="userIconContainer"><img className="userIcon" src={userIcon} alt="User Icon"/></span> */}
       <span className="due">Due</span>
     </div>
