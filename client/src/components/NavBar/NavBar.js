@@ -4,10 +4,8 @@ import './NavBar.css';
 const NavBar = (props) => {
 
   return (
-    <div className="navBar">
-      <SearchBar />
-    </div>
-  );
+    null
+    )
 };
 
 export default NavBar;
