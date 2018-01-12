@@ -77,6 +77,7 @@ class ToDoContainer extends Component {
     axios.get('/inprogress')
       .then((result) => {
         this.setState({ toDosInProgress: result.data })
+        console.log('in progress get request', result);
       })
       .catch((err) => {
         console.log('Error getting in progress to do', err);
@@ -86,6 +87,7 @@ class ToDoContainer extends Component {
       .then((result) => {
         // backend server is not getting the correct results.
         this.setState({ toDosCompleted: result.data})
+        console.log('Completed get request', result);
       })
       .catch((err) => {
         console.log('Error getting completed to do', err);
@@ -104,13 +106,6 @@ class ToDoContainer extends Component {
         console.log('Error toggling to do', err);
       })
   }
-
-  filterToDo = (isCompleted, description, statusColor) => {
-    if(isCompleted === statusColor) {
-      return description
-    }
-  }
-
 
   createToDoStartHandler = () => {
     this.setState({
