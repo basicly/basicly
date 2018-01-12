@@ -9,13 +9,7 @@ const env = process.env.NODE_ENV || 'development';
 const db = {};
 
 if (env === 'production') {
-  const sequelize = new Sequelize(process.env.DATABASE_URL, {
-    // dialect:  'postgres',
-    // protocol: 'postgres',
-    // port:     match[4],
-    // host:     match[3],
-    logging:  true 
-  });
+  const sequelize = new Sequelize(process.env["DATABASE_URL"]);
 } else {
   const sequelize = new Sequelize('basicly', process.env.DB_USER, 'password', {
     host: 'localhost',
