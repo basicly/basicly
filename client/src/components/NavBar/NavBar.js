@@ -8,6 +8,8 @@ const NavBar = (props) => {
   return (
     <div className="navBar">
       <SearchBar
+        searchText={props.searchText}
+        searchTextChangeHandler={props.searchTextChangeHandler}
       />
     </div>
   );

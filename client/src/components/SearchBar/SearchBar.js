@@ -5,7 +5,13 @@ const SearchBar = (props) => {
   return (
     <div className="searchBar">
       <form>
-        <input type="text" placeholder="Search..." name="search" />
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          name="search" 
+          value={props.searchText} 
+          onChange={(event) => props.searchTextChangeHandler(event)}
+        />
       </form>
     </div>
   );

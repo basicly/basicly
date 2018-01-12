@@ -12,14 +12,24 @@ class layout extends Component {
     searchText: ''
   }
 
+  searchTextChangeHandler = (event) => {
+    const updatedText = event.target.value;
+
+    this.setState({
+      searchText: updatedText
+    });
+  }
+
   render() {
     return (
-      <div className="navbar">{console.log('layout', this.props)}
-        <NavBar />
-        <div className="layout">
-          <p className="header">basicly</p>
-          <ToDoContainer />
-        </div>
+      <div className="layout">
+        <NavBar
+          searchText={this.state.searchText}
+          searchTextChangeHandler={this.searchTextChangeHandler}
+        />
+        <ToDoContainer
+          searchText={this.state.searchText}
+        />
       </div>
     );
   }

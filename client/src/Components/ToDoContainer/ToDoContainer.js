@@ -19,57 +19,14 @@ import CreateToDo from '../CreateToDo/CreateToDo';
 
 class ToDoContainer extends Component {
   state = {
-    // this is all static test data
-    toDosInProgress: [
-      {
-        id: 1,
-        description: 'Get a job as a software engineer',
-        isCompleted: false
-      },
-      {
-        id: 2,
-        description: 'Get in shape for upcoming trip to the Bahamas',
-        isCompleted: true
-      },
-      {
-        id: 3,
-        description: 'Last through the cedar allergy season',
-        isCompleted: false
-      }
-    ],
-    toDosCompleted: [
-      {
-        id: 4,
-        description: 'Live past the year 2017',
-        isCompleted: true
-      },
-      {
-        id: 5,
-        description: 'Finish the Hack Reactor technical assessment',
-        isCompleted: true
-      }
-    ],
+    toDosInProgress: [],
+    toDosCompleted: [],
     creatingToDo: false
   }
-  //Do a component did mount
-    //create a get request
-  componentDidMount = () => {
-    axios.get('/inprogress')
-      .then((result) => {
-        this.setState({ toDosInProgress: result.data })
-      })
-      .catch((err) => {
-        console.log('Error getting in progress to do', err);
-      })
 
-    axios.get('/completed')
-      .then((result) => {
-        console.log(result.data)
-        this.setState({ toDosCompleted: result.data})
-      })
-      .catch((err) => {
-        console.log('Error getting completed to do', err);
-      })
+  componentDidMount = () => {
+    this.getInProgress();
+    this.getCompleted();
   }
 
   getInProgress = () => {
@@ -82,19 +39,17 @@ class ToDoContainer extends Component {
       })
   }
 
-    getCompleted = () => {
-      axios.get('/completed')
-        .then((result) => {
-          // backend server is not getting the correct results.
-          this.setState({ toDosCompleted: result.data})
-        })
-        .catch((err) => {
-          console.log('Error getting completed to do', err);
-        })
-    }
+  getCompleted = () => {
+    axios.get('/completed')
+      .then((result) => {
+        this.setState({ toDosCompleted: result.data})
+      })
+      .catch((err) => {
+        console.log('Error getting completed to do', err);
+      })
+  }
 
   toggleToDo = (id, bool) => {
-
     let toggle = !bool
     axios.put('/toggleTodo', { id: id, isCompleted: toggle })
       .then((result) => {
@@ -131,7 +86,22 @@ class ToDoContainer extends Component {
     });
   }
 
+  filterToDoText = (toDos) => {
+    return toDos.filter((toDo) => {
+      const description = toDo.description.toLowerCase();
+      const searchText = this.props.searchText.toLowerCase();
+      if (searchText === '') {
+        return true;
+      } else {
+        return description.includes(searchText);
+      }
+    });
+  }
+
   render() {
+    const filteredToDosInProgress = this.filterToDoText(this.state.toDosInProgress);
+    const filteredToDosCompleted = this.filterToDoText(this.state.toDosCompleted);
+
     return (
       <React.Fragment>
         <Modal
@@ -147,12 +117,12 @@ class ToDoContainer extends Component {
           />
           <ToDoList
             category="In Progress"
-            toDos={this.state.toDosInProgress}
+            toDos={filteredToDosInProgress}
             toggleTodo={this.toggleToDo}
           />
           <ToDoList
             category="Completed"
-            toDos={this.state.toDosCompleted}
+            toDos={filteredToDosCompleted}
             toggleTodo={this.toggleToDo}
           />
         </div>
