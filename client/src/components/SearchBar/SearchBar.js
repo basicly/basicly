@@ -2,9 +2,12 @@ import React from 'react';
 import './SearchBar.css';
 
 const SearchBar = (props) => {
-
   return (
-    null
+    <div className="searchBar">
+      <form>
+        <input type="text" placeholder="Search..." name="search" />
+      </form>
+    </div>
   );
 };
 

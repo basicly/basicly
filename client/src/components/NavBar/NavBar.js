@@ -1,10 +1,14 @@
 import React from 'react';
 import './NavBar.css';
 
-const NavBar = (props) => {
+// import the SearchBar component
+import SearchBar from '../SearchBar/SearchBar';
 
+const NavBar = (props) => {
   return (
     <div className="navBar">
+      <SearchBar
+      />
     </div>
   );
 };
