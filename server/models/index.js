@@ -7,9 +7,9 @@ const basename  = path.basename(__filename);
 require('dotenv').config();
 const env = process.env.NODE_ENV || 'development';
 const db = {};
-
+const dbURL = 'postgres://iqsiekmuhobubu:aeacd4ffc63e884dd379cf22a70796cffa367c8686a20978e5a7b80e0328a6bc@ec2-23-21-246-25.compute-1.amazonaws.com:5432/dcfsvvf408pgf4'
 if (env === 'production') {
-  const sequelize = new Sequelize(process.env["DATABASE_URL"]);
+  const sequelize = new Sequelize(dbURL);
 } else {
   const sequelize = new Sequelize('basicly', process.env.DB_USER, 'password', {
     host: 'localhost',
