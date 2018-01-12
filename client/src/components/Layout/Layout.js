@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Layout.css';
 
 // import the ToDoContainer component
@@ -7,15 +7,32 @@ import ToDoContainer from '../ToDoContainer/ToDoContainer';
 // import NavBar component
 import NavBar from '../NavBar/NavBar';
 
-const layout = (props) => (
+class layout extends Component {
+  state = {
+    searchText: ''
+  }
 
-  <div className="navbar">{console.log('layout', props)}
-    <NavBar />
-    <div className="layout">
-      <p className="header">basicly</p>
-      <ToDoContainer />
-    </div>
-  </div>
-);
+  searchTextChangeHandler = (event) => {
+    const updatedText = event.target.value;
+
+    this.setState({
+      searchText: updatedText
+    });
+  }
+
+  render() {
+    return (
+      <div className="layout">
+        <NavBar
+          searchText={this.state.searchText}
+          searchTextChangeHandler={this.searchTextChangeHandler}
+        />
+        <ToDoContainer
+          searchText={this.state.searchText}
+        />
+      </div>
+    );
+  }
+}
 
 export default layout;
