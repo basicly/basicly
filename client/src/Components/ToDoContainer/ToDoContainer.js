@@ -54,7 +54,6 @@ class ToDoContainer extends Component {
   //Do a component did mount
     //create a get request
   componentDidMount = () => {
-
     axios.get('/inprogress')
       .then((result) => {
         this.setState({ toDosInProgress: result.data })
@@ -65,13 +64,13 @@ class ToDoContainer extends Component {
 
     axios.get('/completed')
       .then((result) => {
-        console.log('completed', result);
         // backend server is not getting the correct results.
         this.setState({ toDosCompleted: result.data})
       })
       .catch((err) => {
         console.log('Error getting completed to do', err);
       })
+      console.log('first state', this.state)
   }
 
   getToDoList = () => {
@@ -91,6 +90,7 @@ class ToDoContainer extends Component {
       .catch((err) => {
         console.log('Error getting completed to do', err);
       })
+      console.log(this.state);
   }
 
   toggleToDo = (id, bool) => {
@@ -98,12 +98,17 @@ class ToDoContainer extends Component {
     let toggle = !bool
     axios.put('/toggleTodo', { id: id, isCompleted: toggle })
       .then((result) => {
-        console.log(result)
         this.getToDoList()
       })
       .catch((err) => {
         console.log('Error toggling to do', err);
       })
+  }
+
+  filterToDo = (isCompleted, description, statusColor) => {
+    if(isCompleted === statusColor) {
+      return description
+    }
   }
 
 

@@ -9,13 +9,25 @@ const toDoList = (props) => {
     <div className="toDoList">
       <div className="category">{props.category}:</div>
       {props.toDos.map((toDo) => {
-        return (
-          <ToDoEntry
-            key={toDo.id}
-            toDo={toDo}
-            toggleTodo={props.toggleTodo}
-          />
-        );
+        if (props.category === 'Completed' && toDo.isCompleted === true) {
+          return (
+            <ToDoEntry
+              key={toDo.id}
+              toDo={toDo}
+              toggleTodo={props.toggleTodo}
+            />
+          );
+        }
+
+        if (props.category === 'In Progress' && toDo.isCompleted === false) {
+          return (
+            <ToDoEntry
+              key={toDo.id}
+              toDo={toDo}
+              toggleTodo={props.toggleTodo}
+            />
+          );
+        }
       })}
     </div>
   );

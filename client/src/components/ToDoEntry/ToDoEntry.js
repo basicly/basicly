@@ -1,5 +1,6 @@
 import React from 'react';
 import './ToDoEntry.css';
+import moment from 'moment';
 
 const toDoEntry = (props) => {
   let statusColor = null;
@@ -14,7 +15,7 @@ const toDoEntry = (props) => {
     <div className="toDoEntry">
       <span className={statusColor} onClick={() => props.toggleTodo(props.toDo.id, props.toDo.isCompleted)}>&#10004;</span>
       <span>{props.toDo.description}</span>
-      <span className="dateContainer">Sep 8</span>
+      <span className="dateContainer">{props.toDo.dueDate}</span>
     </div>
   );
 };
