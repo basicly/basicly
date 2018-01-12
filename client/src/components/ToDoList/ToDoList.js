@@ -9,6 +9,7 @@ const toDoList = (props) => {
     <div className="toDoList">
       <div className="category">{props.category}:</div>
       {props.toDos.map((toDo) => {
+        console.log(toDo)
         if (props.category === 'Completed' && toDo.isCompleted === true) {
           return (
             <ToDoEntry
