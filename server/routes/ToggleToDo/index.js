@@ -6,7 +6,7 @@ ToggleToDo = {
   ToggleToDo(req, res) {
     console.log('AM I GETTING TO TOGGLE');
     models.ToDo.update(
-      { IsCompleted : req.body.IsCompleted },
+      { isCompleted : req.body.isCompleted },
       { where: { id: req.body.id }}
     )
     .then((data) => res.send(data))
