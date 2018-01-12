@@ -17,7 +17,9 @@ inProgressController = {
   },
   getInProgress(req, res) {
       models.ToDo.findAll({
-        IsCompleted: false
+        where: {
+          isCompleted: false
+        }
       })
       .then(allToDo => res.send(allToDo))
       .catch(error => res.send(error))

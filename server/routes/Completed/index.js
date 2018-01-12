@@ -5,9 +5,11 @@ const router  = express.Router();
 completedController = {
   getCompleted(req, res) {
       models.ToDo.findAll({
-        isCompleted: true
+        where: {
+          isCompleted: true
+        }
       })
-      .then(allToDo => res.send(allToDo))
+      .then(allToDo => console.log('COMPLETED TODO:', allToDo))
       .catch(error => res.send(error))
   }
 }
