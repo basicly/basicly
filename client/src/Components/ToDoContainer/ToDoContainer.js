@@ -64,43 +64,42 @@ class ToDoContainer extends Component {
 
     axios.get('/completed')
       .then((result) => {
-        // backend server is not getting the correct results.
+        console.log(result.data)
         this.setState({ toDosCompleted: result.data})
       })
       .catch((err) => {
         console.log('Error getting completed to do', err);
       })
-      console.log('first state', this.state)
   }
 
-  getToDoList = () => {
+  getInProgress = () => {
     axios.get('/inprogress')
       .then((result) => {
         this.setState({ toDosInProgress: result.data })
-        console.log('in progress get request', result);
       })
       .catch((err) => {
         console.log('Error getting in progress to do', err);
       })
-
-    axios.get('/completed')
-      .then((result) => {
-        // backend server is not getting the correct results.
-        this.setState({ toDosCompleted: result.data})
-        console.log('Completed get request', result);
-      })
-      .catch((err) => {
-        console.log('Error getting completed to do', err);
-      })
-      console.log(this.state);
   }
+
+    getCompleted = () => {
+      axios.get('/completed')
+        .then((result) => {
+          // backend server is not getting the correct results.
+          this.setState({ toDosCompleted: result.data})
+        })
+        .catch((err) => {
+          console.log('Error getting completed to do', err);
+        })
+    }
 
   toggleToDo = (id, bool) => {
 
     let toggle = !bool
     axios.put('/toggleTodo', { id: id, isCompleted: toggle })
       .then((result) => {
-        this.getToDoList()
+        this.getInProgress()
+        this.getCompleted()
       })
       .catch((err) => {
         console.log('Error toggling to do', err);
@@ -118,7 +117,8 @@ class ToDoContainer extends Component {
     axios.post('/inprogress', { userId: 1, description: description, dueDate: dueDate})
       .then((result) => {
         this.createToDoCancelHandler();
-        this.getToDoList()
+        this.getInProgress();
+        this.getCompleted();
       })
       .catch((err) => {
         console.log('Error creating new to do: ', err);

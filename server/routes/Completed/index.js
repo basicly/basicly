@@ -9,7 +9,7 @@ completedController = {
           isCompleted: true
         }
       })
-      .then(allToDo => console.log('COMPLETED TODO:', allToDo))
+      .then(allToDo => res.send(allToDo))
       .catch(error => res.send(error))
   }
 }
