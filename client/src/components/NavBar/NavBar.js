@@ -4,8 +4,9 @@ import './NavBar.css';
 const NavBar = (props) => {
 
   return (
-    null
-    )
+    <div className="navBar">
+    </div>
+  );
 };
 
 export default NavBar;
