@@ -13,6 +13,7 @@ const toDoList = (props) => {
           <ToDoEntry
             key={toDo.id}
             toDo={toDo}
+            toggleTodo={props.toggleTodo}
           />
         );
       })}

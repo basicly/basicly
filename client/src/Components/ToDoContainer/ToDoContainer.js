@@ -16,7 +16,6 @@ import Modal from '../Modal/Modal';
 // import the CreateToDo compponent
 import CreateToDo from '../CreateToDo/CreateToDo';
 
-// import $ from 'jquery';
 
 class ToDoContainer extends Component {
   state = {
@@ -55,25 +54,9 @@ class ToDoContainer extends Component {
   //Do a component did mount
     //create a get request
   componentDidMount = () => {
-    //     $.ajax({
-    //   type: "PUT",
-    //   url: "http://localhost:3000/toggleTodo",
-    //   data: {
-    //       id: 4,
-    //       isCompleted: true
-    //     },
-    //   success: function (data) {
-    //     console.log('SUCCESSFUL', data)
-    //   },
-    //   error: function (error) {
-    //     console.log('ERROR ON POST', error);
-    //   }
-    // })
 
     axios.get('/inprogress')
       .then((result) => {
-        console.log('in progress',result);
-        console.log('this', this)
         this.setState({ toDosInProgress: result.data })
       })
       .catch((err) => {
@@ -85,7 +68,25 @@ class ToDoContainer extends Component {
         console.log('completed', result);
         // backend server is not getting the correct results.
         this.setState({ toDosCompleted: result.data})
-        console.log(this.state)
+      })
+      .catch((err) => {
+        console.log('Error getting completed to do', err);
+      })
+  }
+
+  getToDoList = () => {
+    axios.get('/inprogress')
+      .then((result) => {
+        this.setState({ toDosInProgress: result.data })
+      })
+      .catch((err) => {
+        console.log('Error getting in progress to do', err);
+      })
+
+    axios.get('/completed')
+      .then((result) => {
+        // backend server is not getting the correct results.
+        this.setState({ toDosCompleted: result.data})
       })
       .catch((err) => {
         console.log('Error getting completed to do', err);
@@ -93,10 +94,12 @@ class ToDoContainer extends Component {
   }
 
   toggleToDo = (id, bool) => {
+
     let toggle = !bool
     axios.put('/toggleTodo', { id: id, isCompleted: toggle })
       .then((result) => {
         console.log(result)
+        this.getToDoList()
       })
       .catch((err) => {
         console.log('Error toggling to do', err);
@@ -115,9 +118,7 @@ class ToDoContainer extends Component {
     axios.post('/inprogress', { userId: 1, description: description, dueDate: dueDate})
       .then((result) => {
         this.createToDoCancelHandler();
-        //do a get request
-        //set the state
-        console.log(result);
+        this.getToDoList()
       })
       .catch((err) => {
         console.log('Error creating new to do: ', err);
@@ -147,10 +148,12 @@ class ToDoContainer extends Component {
           <ToDoList
             category="In Progress"
             toDos={this.state.toDosInProgress}
+            toggleTodo={this.toggleToDo}
           />
           <ToDoList
             category="Completed"
             toDos={this.state.toDosCompleted}
+            toggleTodo={this.toggleToDo}
           />
         </div>
       </React.Fragment>
