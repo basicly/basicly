@@ -2,5 +2,19 @@
   width: 30%;
   padding: 6px;
   margin: auto;
-  border: 1px solid gray;
+  border: 1px solid rgba(128, 128, 128, .3);
+  border-radius: 8px;
+}
+
+.searchBar .input {
+  background-image: url('./images/search-icon.png');
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  padding: 0 22px;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.searchBar input::placeholder {
+  opacity: 0.6;
 }
