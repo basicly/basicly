@@ -9,14 +9,10 @@ const env = process.env.NODE_ENV || 'development';
 const db = {};
 const dbURL = process.env.DATABASE_URL;
 
-console.log('This is the database URL with updated logging', dbURL);
-console.log('This is the env', env);
-
 let sequelize = null;
 
 if (env === 'production') {
-  console.log('We made it here!');
-  sequelize = new Sequelize('postgres://iqsiekmuhobubu:aeacd4ffc63e884dd379cf22a70796cffa367c8686a20978e5a7b80e0328a6bc@ec2-23-21-246-25.compute-1.amazonaws.com:5432/dcfsvvf408pgf4');
+  sequelize = new Sequelize(dbURL);
 } else {
   sequelize = new Sequelize('basicly', process.env.DB_USER, 'password', {
     host: 'localhost',
