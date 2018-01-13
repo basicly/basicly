@@ -7,8 +7,20 @@
 }
 
 .navBar .basiclyHeader {
+  width: 100%;
   border-bottom: 2px solid rgb(223, 223, 223);
   padding-bottom: 14px;
+  overflow: hidden;
+}
+
+.navBar .emptyLeftContainer {
+  float: left;
+  width: 30%;
+}
+
+.navBar .centerContainer {
+  float: left;
+  width: 40%;
 }
 
 .navBar .basiclyTitle {

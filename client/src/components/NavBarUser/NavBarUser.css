@@ -1,0 +1,11 @@
+.navBarUser {
+  float: right;
+  width: 30%;
+}
+
+.navBarUser .profileImage {
+  padding-top: 24px;
+  padding-left: 240px;
+  width: 50px;
+  height: 50px;
+}
