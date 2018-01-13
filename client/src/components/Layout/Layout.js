@@ -12,6 +12,7 @@ class layout extends Component {
     searchText: ''
   }
 
+  // updates the state when the search text changes
   searchTextChangeHandler = (event) => {
     const updatedText = event.target.value;
 

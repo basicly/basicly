@@ -25,7 +25,10 @@ class ToDoContainer extends Component {
   }
 
   componentDidMount = () => {
+    // get all of the in progress to do's when our ToDoContainer mounts
     this.getInProgress();
+
+    // get all of the completed to do's when our ToDoContainer mounts
     this.getCompleted();
   }
 
@@ -73,12 +76,14 @@ class ToDoContainer extends Component {
       })
   }
 
+  // sets the creatingToDo state varaible to true and opens up a CreateToDo modal
   createToDoStartHandler = () => {
     this.setState({
       creatingToDo: true
     });
   }
 
+  // posts a new to do when the submit button is clicked in the CreateToDo modal
   createToDoSubmitHandler = (event, description, dueDate) => {
     event.preventDefault();
     axios.post('/inprogress', { userId: 1, description: description, dueDate: dueDate})
@@ -92,12 +97,14 @@ class ToDoContainer extends Component {
       });
   }
 
+  // sets the creatingToDo state variable to false which cancels the prompt and removes the CreateToDo modal
   createToDoCancelHandler = () => {
     this.setState({
       creatingToDo: false
     });
   }
 
+  // filters out to do's based on the current search criteria
   filterToDoText = (toDos) => {
     return toDos.filter((toDo) => {
       const description = toDo.description.toLowerCase();

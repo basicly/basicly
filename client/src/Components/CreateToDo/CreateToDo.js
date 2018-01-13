@@ -19,12 +19,14 @@ class CreateToDo extends Component {
     }
   };
 
+  // updates the state when the date changes
   dateChangeHandler = (date)  => {
     this.setState({
       startDate: date
     });
   }
 
+  // updates the state when the description changes
   toDoDescriptionChangeHandler = (event) => {
     const newDescription = event.target.value;
 
