@@ -5,26 +5,26 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename  = path.basename(__filename);
 require('dotenv').config();
-// const env       = process.env.NODE_ENV || 'development';
-// const config    = require(__dirname + '/../config/config.js')[env];
+const env = process.env.NODE_ENV || 'development';
 const db = {};
+const dbURL = process.env.DATABASE_URL;
 
-// if (config.use_env_variable) {
-//   var sequelize = new Sequelize(process.env[config.use_env_variable], config);
-// } else {
-//   var sequelize = new Sequelize(config.database, config.username, config.password, config);
-// }
+let sequelize = null;
 
-const sequelize = new Sequelize('basicly', process.env.DB_USER, 'password', {
-  host: 'localhost',
-  dialect: 'postgres',
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  }
-});
+if (env === 'production') {
+  sequelize = new Sequelize(dbURL);
+} else {
+  sequelize = new Sequelize('basicly', process.env.DB_USER, 'password', {
+    host: 'localhost',
+    dialect: 'postgres',
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  });  
+}
 
 fs
   .readdirSync(__dirname)
