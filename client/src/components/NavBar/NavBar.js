@@ -17,7 +17,7 @@ const NavBar = (props) => {
             basicly
           </div>
           <div className="basiclySubtitle">
-            A basic notes app for basic teams.
+            A basic task app for teams.
           </div>
         </div>
         <NavBarUser />
