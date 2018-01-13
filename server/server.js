@@ -4,7 +4,7 @@ const app = express();
 const Promise = require('bluebird');
 const completed = require('./routes/Completed');
 const inProgress = require('./routes/InProgress');
-const deleteTodo = require('./routes/DeleteToDo');
+const deleteToDo = require('./routes/DeleteToDo');
 const models = require('./models');
 const toggleToDo = require('./routes/ToggleToDo');
 const PORT = process.env.PORT || 5000;
@@ -25,6 +25,7 @@ app.get('/completed', completed.getCompleted);
 app.post('/inprogress', inProgress.postInProgress);
 app.get('/inprogress', inProgress.getInProgress);
 app.put('/toggleTodo', toggleToDo.ToggleToDo);
+app.put('/deleteTodo', deleteToDo.DeleteToDo)
 
 //Listening to port
 app.listen(PORT);

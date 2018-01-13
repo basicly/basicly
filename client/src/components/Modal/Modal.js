@@ -6,7 +6,7 @@ const modal = (props) => {
 
   if (props.show) {
     modalHtml = (
-      <div 
+      <div
         className="backdrop"
         onClick={props.backdropClicked}>
         <div className="modal">

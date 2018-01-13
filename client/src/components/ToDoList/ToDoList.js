@@ -5,17 +5,27 @@ import './ToDoList.css';
 import ToDoEntry from '../ToDoEntry/ToDoEntry';
 
 const toDoList = (props) => {
+  let toDoEntries = (
+    <span>Nothing here!</span>
+  );
+
+  if (props.toDos.length > 0) {
+    toDoEntries = (
+      props.toDos.map((toDo) => (
+        <ToDoEntry
+          key={toDo.id}
+          toDo={toDo}
+          toggleTodo={props.toggleTodo}
+          deleteToDo={props.deleteToDo}
+        />
+      ))
+    );
+  }
+
   return (
     <div className="toDoList">
       <div className="category">{props.category}:</div>
-      {props.toDos.map((toDo) => {
-        return (
-          <ToDoEntry
-            key={toDo.id}
-            toDo={toDo}
-          />
-        );
-      })}
+      {toDoEntries}
     </div>
   );
 };

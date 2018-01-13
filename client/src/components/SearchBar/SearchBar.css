@@ -1,0 +1,23 @@
+.searchBar {
+  width: 25%;
+  margin: 14px auto 14px auto;
+}
+
+.searchBar .input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(128, 128, 128, .3);
+  border-radius: 20px;
+  font-family: 'Source Sans Pro';
+  background-color: white;
+  background-image: url('./images/search-icon.png');
+  background-repeat: no-repeat;
+  background-position: 10px 6px;
+  background-size: 16px 16px;
+  padding: 4px 0 4px 30px;
+  opacity: 0.9;
+}
+
+.searchBar input::placeholder {
+  opacity: 0.6;
+}

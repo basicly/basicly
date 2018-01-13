@@ -41,9 +41,9 @@ class CreateToDo extends Component {
       <div className="createToDo">
         <div className="createToDoHeader">
           New To Do
-          <img 
+          <img
             className="xIcon"
-            src={xIcon} 
+            src={xIcon}
             alt="Close"
             onClick={this.props.createToDoCanceled}
           />
@@ -51,12 +51,12 @@ class CreateToDo extends Component {
         <form
           onSubmit={(event) => this.props.createToDoSubmitted(event, this.state.toDo.description, this.state.startDate)}>
           <label className="label">
-            Name
+            Description
             <br />
             <input
-              className="textInput" 
-              type="text" 
-              name="toDo" 
+              className="textInput"
+              type="text"
+              name="toDo"
               value={this.state.toDo.description}
               onChange={(event) => this.toDoDescriptionChangeHandler(event)}
             />

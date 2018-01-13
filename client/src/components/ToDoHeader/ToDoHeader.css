@@ -4,17 +4,32 @@
 
 .toDoHeader .button {
   color: rgb(52, 180, 223);
+  font-family: 'Source Sans Pro';
   font-weight: bold;
   font-size: .9em;
   padding: 5px;
   border: 2px solid gray;
   border-color: rgb(52, 180, 223);
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.toDoHeader .button:hover {
+  color: rgb(255, 255, 255);
+  font-family: 'Source Sans Pro';
+  font-weight: bold;
+  font-size: .9em;
+  padding: 5px;
+  border: 2px solid gray;
+  background-color: rgb(52, 180, 223);
+  border-color: rgb(52, 180, 223);
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .toDoHeader .due {
   float: right;
-  font-size: .85em;
+  font-size: .95em;
   color: gray;
   padding-top: 14px;
   padding-right: 6px;

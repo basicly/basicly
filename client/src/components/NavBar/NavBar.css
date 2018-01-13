@@ -1,9 +1,41 @@
 .navBar {
   width: 100%;
   height: 100%;
-  margin: 20px auto;
-  padding: 0px 40px 40px 40px;
-  border-radius: 5px;
+  margin: auto auto 30px auto;
   background-color: #FFFFFF;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navBar .basiclyHeader {
+  width: 100%;
+  border-bottom: 2px solid rgb(223, 223, 223);
+  padding-bottom: 14px;
+  overflow: hidden;
+}
+
+.navBar .emptyLeftContainer {
+  float: left;
+  width: 30%;
+}
+
+.navBar .centerContainer {
+  float: left;
+  width: 40%;
+}
+
+.navBar .basiclyTitle {
+  width: 100%;
+  font-family: 'Great Vibes';
+  font-size: 50px;
+  color: rgb(41, 73, 83);
+  margin: auto;
+  text-align: center;
+}
+
+.navBar .basiclySubtitle {
+  width: 100%;
+  font-size: 16px;
+  color: rgb(41, 73, 83);
+  margin: auto;
+  text-align: center;
 }

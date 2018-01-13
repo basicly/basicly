@@ -7,7 +7,7 @@ import './ToDoHeader.css';
 const toDoHeader = (props) => {
   return (
     <div className="toDoHeader">
-      <button 
+      <button
         className="button"
         onClick={props.createToDoClicked}>
         Add To Do

@@ -2,9 +2,18 @@ import React from 'react';
 import './SearchBar.css';
 
 const SearchBar = (props) => {
-
   return (
-    null
+    <div className="searchBar">
+      <form>
+        <input
+          className="input"
+          type="text" 
+          placeholder="Search" 
+          value={props.searchText} 
+          onChange={(event) => props.searchTextChangeHandler(event)}
+        />
+      </form>
+    </div>
   );
 };
 
