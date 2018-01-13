@@ -5,10 +5,12 @@ import './ToDoList.css';
 import ToDoEntry from '../ToDoEntry/ToDoEntry';
 
 const toDoList = (props) => {
+  // the default value when no to do's are in the list
   let toDoEntries = (
     <span>Nothing here!</span>
   );
 
+  // when to do's are found, dynamically populate each entry in the list
   if (props.toDos.length > 0) {
     toDoEntries = (
       props.toDos.map((toDo) => (
