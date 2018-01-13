@@ -103,76 +103,76 @@ This will update the database so that the todo list entry - isDeleted - is set t
 ### Component structure:
 
 basicly (root)
-  -- client
-    -- src
-      -- components
-        -- CreateToDo
-          -- images
-          -- CreateToDo.js
-          -- CreateToDo.css
-        -- Layout
-          -- Layout.js
-          -- Layout.css
-        -- Modal
-          -- Modal.js
-          -- Modal.css
-        -- NavBar
-          -- NavBar.js
-          -- NavBar.css
-        -- NavBarUser
-          -- images
-          -- NavBarUser.js
-          -- NavBarUser.css
-        -- SearchBar
-          -- images
-          -- SearchBar.js
-          -- SearchBar.css
-        -- ToDoContainer
-          -- ToDoContainer.js
-          -- ToDoContainer.css
-        -- ToDoEntry
-          -- ToDoEntry.js
-          -- ToDoEntry.css
-        -- ToDoHeader
-          -- ToDoHeader.js
-          -- ToDoHeader.css
-        -- ToDoList
-          -- ToDoList.js
-          -- ToDoList.css
-        -- App.js
+  - client
+    - src
+      - components
+        - CreateToDo
+          - images
+          - CreateToDo.js
+          - CreateToDo.css
+        - Layout
+          - Layout.js
+          - Layout.css
+        - Modal
+          - Modal.js
+          - Modal.css
+        - NavBar
+          - NavBar.js
+          - NavBar.css
+        - NavBarUser
+          - images
+          - NavBarUser.js
+          - NavBarUser.css
+        - SearchBar
+          - images
+          - SearchBar.js
+          - SearchBar.css
+        - ToDoContainer
+          - ToDoContainer.js
+          - ToDoContainer.css
+        - ToDoEntry
+          - ToDoEntry.js
+          - ToDoEntry.css
+        - ToDoHeader
+          - ToDoHeader.js
+          - ToDoHeader.css
+        - ToDoList
+          - ToDoList.js
+          - ToDoList.css
+        - App.js
 
 Each component has its own folder. If a component has styling, the CSS file will be located within that component's folder. Note that we are not using CSS modules. Be aware that
 even though in development each CSS file will be unique to its component folder, CSS styling will still be globally accessible once the project has been built through webpack.
 Images are also stored inside the specific component's folder that is utilizing them.
 
-### CreateToDo
+###$ CreateToDo
 A modal wich allows users to create a to do entry.
 
-### Layout
+###$ Layout
 A generic component used to house the layout of the app and all of its major subcomponents.
 
-### Modal
+###$ Modal
 A generic modal which can be reused throughout the application.
 
-### NavBar
+###$ NavBar
 A navigation bar which will be used across all of our different sections of the application.
 
-### NavBarUser
+###$ NavBarUser
 A subcomponent of the NavBar component. This component will be the user's profile icon, which can be used to navigate the user's settings and logout.
 
-### SearchBar
+###$ SearchBar
 A search bar for filtering to do text.
 
-### ToDoContainer
+###$ ToDoContainer
 A container for all of our to do related subcomponents.
 
-### ToDoEntry
+###$ ToDoEntry
 A single to do entry displayed in a list.
 
-### ToDoHeader
+###$ ToDoHeader
 A header which houses a button to create new to do's and also column headers for all to do lists.
 
-### ToDoList
+###$ ToDoList
 A generic to do list, which can be customized with a category name. Dynamically builds a list of to do entries.
 
 ## Deploying to Heroku
