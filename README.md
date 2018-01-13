@@ -1,6 +1,6 @@
 # Basicly
 
-Welcome! Basicly is a task app for teams. 
+Welcome! Basicly is a task app for teams.
 
 ## Current capabilities
 
@@ -51,7 +51,52 @@ npm start
 
 ## Routes in Basicly
 
-- Sam to fill this out
+```
+app.get('/completed', completed.getCompleted);
+app.post('/inprogress', inProgress.postInProgress);
+app.get('/inprogress', inProgress.getInProgress);
+app.put('/toggleTodo', toggleToDo.ToggleToDo);
+app.put('/deleteTodo', deleteToDo.DeleteToDo)
+```
+
+### Completed
+
+#### getCompleted
+```
+app.get('/completed', completed.getCompleted);
+```
+This will get all of the completed todo list entries from the database.
+
+### InProgress
+
+#### postInProgress
+```
+app.post('/inprogress', inProgress.postInProgress);
+```
+This will post a new todo entry to the database.
+
+#### getInProgress
+```
+app.get('/inprogress', inProgress.getInProgress);
+```
+This will get all of the in progress todo list entries from the database.
+
+### ToggleToDo
+
+#### toggleToDo
+
+```
+app.put('/toggleTodo', toggleToDo.ToggleToDo);
+```
+This will either update the todo list entry to either be complete or incomplete.
+
+### DeleteToDo
+
+#### deleteToDo
+```
+app.put('/deleteTodo', deleteToDo.DeleteToDo)
+```
+This will update the database so that the todo list entry - isDeleted - is set the true.
 
 ## React components
 
@@ -70,7 +115,7 @@ From the root directory, run:
 
 ```
 cd client
-npm run build 
+npm run build
 ```
 
 #### Create a Heroku app

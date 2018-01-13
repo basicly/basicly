@@ -24,8 +24,8 @@ if (process.env.NODE_ENV === 'production') {
 app.get('/completed', completed.getCompleted);
 app.post('/inprogress', inProgress.postInProgress);
 app.get('/inprogress', inProgress.getInProgress);
-app.put('/toggleTodo', toggleToDo.ToggleToDo);
-app.put('/deleteTodo', deleteToDo.DeleteToDo)
+app.put('/toggleTodo', toggleToDo.toggleToDo);
+app.put('/deleteTodo', deleteToDo.deleteToDo)
 
 // Listening to port
 app.listen(PORT);

@@ -2,8 +2,10 @@ const models  = require('../../models');
 const express = require('express');
 const router  = express.Router();
 
-DeleteToDo = {
-  DeleteToDo(req, res) {
+deleteToDo = {
+  //deleteToDo sets isDeleted to true so that the client does not see
+  //any isDeleted that is set to true
+  deleteToDo(req, res) {
     models.ToDo.update(
       { isDeleted : req.body.isDeleted },
       { where: { id: req.body.id }}
@@ -13,4 +15,4 @@ DeleteToDo = {
   }
 }
 
-module.exports = DeleteToDo;
+module.exports = deleteToDo;
