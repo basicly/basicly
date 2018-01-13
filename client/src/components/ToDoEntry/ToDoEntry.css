@@ -7,14 +7,16 @@
 .toDoEntry .inProgress {
   margin-right: 20px;
   color: rgba(128, 128, 128, .5);
+  cursor: pointer;
 }
 
 .toDoEntry .completed {
   margin-right: 20px;
   color: green;
+  cursor: pointer;
 }
 
 .toDoEntry .dateContainer {
   float: right;
-  font-size: .85em;
+  font-size: .9em;
 }
