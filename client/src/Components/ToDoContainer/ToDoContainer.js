@@ -61,6 +61,18 @@ class ToDoContainer extends Component {
       })
   }
 
+  deleteToDo = (id, bool) => {
+    let toggle = !bool
+    axios.put('/deleteTodo', { id: id, isDeleted: toggle })
+      .then((result) => {
+        this.getInProgress()
+        this.getCompleted()
+      })
+      .catch((err) => {
+        console.log('Error deleting to do', err);
+      })
+  }
+
   createToDoStartHandler = () => {
     this.setState({
       creatingToDo: true
@@ -119,11 +131,13 @@ class ToDoContainer extends Component {
             category="In Progress"
             toDos={filteredToDosInProgress}
             toggleTodo={this.toggleToDo}
+            deleteToDo={this.deleteToDo}
           />
           <ToDoList
             category="Completed"
             toDos={filteredToDosCompleted}
             toggleTodo={this.toggleToDo}
+            deleteToDo={this.deleteToDo}
           />
         </div>
       </React.Fragment>

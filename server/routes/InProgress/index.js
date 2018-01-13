@@ -4,7 +4,6 @@ const router  = express.Router();
 
 inProgressController = {
   postInProgress(req, res) {
-    console.log('inside post', req.body);
       models.ToDo.create({
         UserId: req.body.userId,
         isCompleted: false,
@@ -18,8 +17,10 @@ inProgressController = {
   getInProgress(req, res) {
       models.ToDo.findAll({
         where: {
-          isCompleted: false
-        }
+          isCompleted: false,
+          isDeleted: false
+        },
+        order: [['dueDate', 'ASC']]
       })
       .then(allToDo => res.send(allToDo))
       .catch(error => res.send(error))

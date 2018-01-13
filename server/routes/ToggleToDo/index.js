@@ -4,7 +4,6 @@ const router  = express.Router();
 
 ToggleToDo = {
   ToggleToDo(req, res) {
-    console.log('AM I GETTING TO TOGGLE');
     models.ToDo.update(
       { isCompleted : req.body.isCompleted },
       { where: { id: req.body.id }}
