@@ -4,7 +4,7 @@ const app = express();
 const Promise = require('bluebird');
 const completed = require('./routes/Completed');
 const inProgress = require('./routes/InProgress');
-const deleteTodo = require('./routes/DeleteToDo');
+const deleteToDo = require('./routes/DeleteToDo');
 const models = require('./models');
 const toggleToDo = require('./routes/ToggleToDo');
 
@@ -25,29 +25,7 @@ app.get('/completed', completed.getCompleted);
 app.post('/inprogress', inProgress.postInProgress);
 app.get('/inprogress', inProgress.getInProgress);
 app.put('/toggleTodo', toggleToDo.ToggleToDo);
-
-    models.User.create({
-      username: 'samTheUser',
-      password: 'haha'
-    }).then(function() {
-      console.log('we did it');
-      // res.redirect('/');
-    });
-
-    // models.ToDo.create({
-    //     UserId: 1,
-    //     isCompleted: false,
-    //     isDeleted: false
-    //   }).then(function() {
-    //     console.log('Todo Created')
-    // });
-
-// models.User.findAll()
-//   .then((data) => {
-//     let date = new Date(data[0].createdAt);
-//     console.log('hello sir', (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear());
-//   });
-
+app.put('/deleteTodo', deleteToDo.DeleteToDo)
 
 
 //Listening to port

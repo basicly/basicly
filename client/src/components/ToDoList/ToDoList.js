@@ -16,6 +16,7 @@ const toDoList = (props) => {
           key={toDo.id}
           toDo={toDo}
           toggleTodo={props.toggleTodo}
+          deleteToDo={props.deleteToDo}
         />
       ))
     );

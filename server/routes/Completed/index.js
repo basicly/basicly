@@ -6,8 +6,10 @@ completedController = {
   getCompleted(req, res) {
       models.ToDo.findAll({
         where: {
-          isCompleted: true
-        }
+          isCompleted: true,
+          isDeleted: false
+        },
+        order: "dueDate"
       })
       .then(allToDo => res.send(allToDo))
       .catch(error => res.send(error))
