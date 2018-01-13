@@ -12,7 +12,7 @@ const dbURL = process.env.DATABASE_URL;
 console.log('This is the database URL with updated logging', dbURL);
 console.log('This is the env', env);
 
-const sequelize = null;
+let sequelize = null;
 
 if (env === 'production') {
   console.log('We made it here!');
