@@ -19,7 +19,8 @@ inProgressController = {
         where: {
           isCompleted: false,
           isDeleted: false
-        }
+        },
+        order: [['dueDate', 'ASC']]
       })
       .then(allToDo => res.send(allToDo))
       .catch(error => res.send(error))

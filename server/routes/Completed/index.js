@@ -9,7 +9,7 @@ completedController = {
           isCompleted: true,
           isDeleted: false
         },
-        order: "dueDate"
+        order: [['dueDate', 'ASC']]
       })
       .then(allToDo => res.send(allToDo))
       .catch(error => res.send(error))

@@ -20,6 +20,14 @@ app.get('/api', (req, res) => {
    res.send(['rory', 'joe', 'boi']);
 });
 
+    models.User.create({
+      username: 'samTheUser',
+      password: 'haha'
+    }).then(function() {
+      console.log('we did it');
+      // res.redirect('/');
+    });
+
 //Either getting or posting Completed and In Progress To-Do's
 app.get('/completed', completed.getCompleted);
 app.post('/inprogress', inProgress.postInProgress);
