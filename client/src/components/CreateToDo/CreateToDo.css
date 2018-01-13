@@ -15,6 +15,7 @@
   float: right;
   width: 18px;
   height: 18px;
+  cursor: pointer;
 }
 
 .createToDo .label {
@@ -22,10 +23,12 @@
 }
 
 .createToDo .textInput {
+  font-family: 'Source Sans Pro';
   margin-top: 5px;
   margin-bottom: 20px;
-  padding-left: 8px;
-  border: 2px solid gray;
+  padding-left: 10px;
+  border: 1px solid rgba(128, 128, 128, .3);
+  border-radius: 10px;
   width: 85%;
   height: 30px;
 }
@@ -36,15 +39,18 @@
 }
 
 .createToDo .datePicker {
+  font-family: 'Source Sans Pro';
   margin-top: 5px;
-  padding: 4px;
-  border: 2px solid gray;
-  border-radius: 3px;
+  padding: 4px 0 4px 10px;
+  border: 1px solid rgba(128, 128, 128, .3);
+  border-radius: 10px;
 }
 
 .createToDo .button {
   float: right;
+  font-family: 'Source Sans Pro';
   color: white;
+  cursor: pointer;
   border: 0px;
   padding: 10px 15px;
   background-color: rgb(3, 151, 250);

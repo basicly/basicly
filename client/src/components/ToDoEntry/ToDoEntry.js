@@ -15,7 +15,7 @@ const toDoEntry = (props) => {
     <div className="toDoEntry">
       <span className={statusColor} onClick={() => props.toggleTodo(props.toDo.id, props.toDo.isCompleted)}>&#10004;</span>
       <span>{props.toDo.description}</span>
-      <span className="dateContainer">{props.toDo.dueDate}</span>
+      <span className="dateContainer">{moment(props.toDo.dueDate).format('MMM D')}</span>
     </div>
   );
 };
