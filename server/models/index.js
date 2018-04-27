@@ -12,7 +12,9 @@ const dbURL = process.env.DATABASE_URL;
 let sequelize = null;
 
 if (env === 'production') {
-  sequelize = new Sequelize(dbURL);
+  sequelize = new Sequelize(dbURL, {
+    dialect: 'postgres'
+  });
 } else {
   sequelize = new Sequelize('basicly', process.env.DB_USER, 'password', {
     host: 'localhost',
